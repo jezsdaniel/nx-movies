@@ -1,6 +1,6 @@
-import { Movie } from '@/models/movie';
+import { IMovie } from '@/models/movie';
 
-export const getPopularMovies = async (): Promise<Movie[]> => {
+export const getPopularMovies = async (): Promise<IMovie[]> => {
   const res = await fetch(
     'https://api.themoviedb.org/3/movie/popular?language=en-US&page=1',
     {
