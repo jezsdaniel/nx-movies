@@ -1,95 +1,74 @@
-import Image from 'next/image'
-import styles from './page.module.css'
+import Image from 'next/image';
+import { Card, CardContent, Stack, Typography } from '@mui/material';
+import Grid2 from '@mui/material/Unstable_Grid2/Grid2';
 
 export default function Home() {
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
+    <main
+      style={{
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+      }}
+    >
+      <Stack
+        direction="column"
+        alignItems="center"
+        p={4}
+        maxWidth="lg"
+        sx={{
+          width: '100%',
+        }}
+        spacing={4}
+      >
+        <Typography variant="h4">Popular Movies</Typography>
+        <Grid2
+          container
+          justifyContent="center"
+          alignItems="center"
+          spacing={4}
+          sx={{
+            width: '100%',
+          }}
         >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore the Next.js 13 playground.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
+          {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((i) => (
+            <Grid2 key={i}>
+              <Card
+                sx={{
+                  width: 250,
+                  border: '1px solid #eaeaea',
+                  borderRadius: '16px',
+                  boxShadow: 'none',
+                  ':hover': { boxShadow: '0px 0px 10px 10px rgba(0,0,0,0.15)' },
+                }}
+              >
+                <Image
+                  width="250"
+                  height="375"
+                  src="https://image.tmdb.org/t/p/w780/voHUmluYmKyleFkTu3lOXQG702u.jpg"
+                  placeholder="blur"
+                  quality={100}
+                  blurDataURL="https://image.tmdb.org/t/p/w92/voHUmluYmKyleFkTu3lOXQG702u.jpg"
+                  alt="Movie poster"
+                />
+                <CardContent>
+                  <Typography
+                    variant="h6"
+                    component="div"
+                    sx={{
+                      whiteSpace: 'nowrap',
+                      overflow: 'hidden',
+                      textOverflow: 'ellipsis',
+                    }}
+                  >
+                    Loki
+                  </Typography>
+                </CardContent>
+              </Card>
+            </Grid2>
+          ))}
+        </Grid2>
+      </Stack>
     </main>
-  )
+  );
 }
