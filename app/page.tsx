@@ -2,7 +2,11 @@ import Image from 'next/image';
 import { Card, CardContent, Stack, Typography } from '@mui/material';
 import Grid2 from '@mui/material/Unstable_Grid2/Grid2';
 
-export default function Home() {
+import { getPopularMovies } from '@/api/get-popular-movies';
+
+export default async function Home() {
+  const popularMovies = await getPopularMovies();
+
   return (
     <main
       style={{
@@ -31,8 +35,8 @@ export default function Home() {
             width: '100%',
           }}
         >
-          {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((i) => (
-            <Grid2 key={i}>
+          {popularMovies.map((i) => (
+            <Grid2 key={i.id}>
               <Card
                 sx={{
                   width: 250,
@@ -45,10 +49,10 @@ export default function Home() {
                 <Image
                   width="250"
                   height="375"
-                  src="https://image.tmdb.org/t/p/w780/voHUmluYmKyleFkTu3lOXQG702u.jpg"
+                  src={`https://image.tmdb.org/t/p/w780${i.poster_path}`}
                   placeholder="blur"
                   quality={100}
-                  blurDataURL="https://image.tmdb.org/t/p/w92/voHUmluYmKyleFkTu3lOXQG702u.jpg"
+                  blurDataURL={`https://image.tmdb.org/t/p/w92${i.poster_path}`}
                   alt="Movie poster"
                 />
                 <CardContent>
@@ -61,7 +65,7 @@ export default function Home() {
                       textOverflow: 'ellipsis',
                     }}
                   >
-                    Loki
+                    {i.title}
                   </Typography>
                 </CardContent>
               </Card>
