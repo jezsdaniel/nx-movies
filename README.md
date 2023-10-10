@@ -2,14 +2,22 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
-First, run the development server:
+Create an .env file and your TMDB api key using the variable name THEMOVIEDB_API_KEY
 
 ```bash
-npm run dev
-# or
+THEMOVIEDB_API_KEY=your_api_key
+```
+
+Install dependencies:
+
+```bash
+yarn
+```
+
+Run the development server:
+
+```bash
 yarn dev
-# or
-pnpm dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
