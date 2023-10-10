@@ -34,7 +34,6 @@ export const MovieItem: React.FC<MovieItemProps> = ({ movie }) => {
           height="390"
           src={`https://image.tmdb.org/t/p/w780${movie.poster_path}`}
           placeholder="blur"
-          quality={100}
           blurDataURL={`https://image.tmdb.org/t/p/w92${movie.poster_path}`}
           alt="Movie poster"
         />

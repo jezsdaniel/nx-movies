@@ -1,7 +1,5 @@
-import React, { Suspense } from 'react';
-
-import Loading from './loading';
+import React from 'react';
 
 export default function MovieLayout({ children }: { children: React.ReactNode }) {
-  return <Suspense fallback={<Loading />}>{children}</Suspense>;
+  return children;
 }
